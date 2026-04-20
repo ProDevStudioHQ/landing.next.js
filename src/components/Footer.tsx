@@ -1,0 +1,116 @@
+"use client";
+
+import Link from "next/link";
+import { FaGithub, FaTwitter, FaLinkedin, FaEtsy } from "react-icons/fa6";
+
+const footerLinks = {
+  Services: [
+    { label: "Business Websites", href: "https://www.etsy.com/shop/DigitalStudioLF", external: true },
+    { label: "Admin Dashboards", href: "https://www.etsy.com/shop/DigitalStudioLF", external: true },
+    { label: "CRM Systems", href: "https://www.etsy.com/shop/DigitalStudioLF", external: true },
+    { label: "Login Pages", href: "https://www.etsy.com/shop/DigitalStudioLF", external: true },
+  ],
+  Company: [
+    { label: "About Us", href: "#" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Careers", href: "#" },
+    { label: "Blog", href: "#" },
+  ],
+  Support: [
+    { label: "Help Center", href: "#" },
+    { label: "Contact Us", href: "#contact" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Status", href: "#" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms of Service", href: "#" },
+    { label: "Cookie Policy", href: "#" },
+    { label: "GDPR", href: "#" },
+  ],
+};
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-white/5 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-6 gap-8 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <div className="w-9 h-9 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center">
+                <span className="text-white font-black text-sm">DS</span>
+              </div>
+              <span className="text-white font-bold text-xl tracking-tight">
+                Digital Studio<span className="text-primary"> LF</span>
+              </span>
+            </Link>
+            <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-xs">
+              We build premium digital products that help businesses grow.
+              Websites, dashboards, CRM systems, and more.
+            </p>
+            <div className="flex items-center gap-3 text-white/40 text-sm">
+              <span>📧 digitalstudiolf@gmail.com</span>
+            </div>
+          </div>
+
+          {/* Links */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title}>
+              <h4 className="text-white font-semibold text-sm mb-4">
+                {title}
+              </h4>
+              <ul className="space-y-2.5">
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="text-white/40 text-sm hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/30 text-sm">
+            © {new Date().getFullYear()} Digital Studio LF. All rights reserved.
+          </p>
+          <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end">
+            <a
+              href="https://github.com/ProDevStudioHQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-white/10 hover:border-primary/50 hover:from-primary/10 hover:to-primary/5 transition-all duration-300 shadow-lg hover:shadow-primary/20"
+            >
+              <FaGithub size={18} className="text-white/70 group-hover:text-primary transition-colors" />
+              <span className="text-white/60 text-sm group-hover:text-white transition-colors font-semibold">
+                View Our Work
+              </span>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-primary-dark rounded-full blur opacity-0 group-hover:opacity-20 transition duration-300 -z-10" />
+            </a>
+            <a
+              href="https://www.etsy.com/shop/DigitalStudioLF"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-yellow/[0.05] to-amber/[0.02] border border-yellow-600/20 hover:border-yellow-500/50 hover:from-yellow-500/10 hover:to-yellow-600/5 transition-all duration-300 shadow-lg hover:shadow-yellow-500/20"
+            >
+              <FaEtsy size={18} className="text-yellow-600/70 group-hover:text-yellow-500 transition-colors" />
+              <span className="text-yellow-700/60 text-sm group-hover:text-yellow-400 transition-colors font-semibold">
+                Shop
+              </span>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full blur opacity-0 group-hover:opacity-15 transition duration-300 -z-10" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
