@@ -95,34 +95,67 @@ export default function PortfolioSection() {
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : project.mockup === "login" ? (
-                  <div className="relative w-[70%] max-w-[260px] bg-black/70 rounded-xl border border-white/10 backdrop-blur-sm p-5 group-hover:scale-105 transition-transform duration-500 shadow-2xl">
-                    <div className="flex justify-center mb-4">
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                        <div className="w-4 h-4 rounded-sm bg-white/90" />
+                  <div className="relative w-[70%] max-w-[280px] bg-gradient-to-br from-black/90 to-black/70 rounded-2xl border border-white/10 backdrop-blur-sm p-6 group-hover:scale-105 transition-transform duration-500 shadow-2xl overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-pink-500/5 pointer-events-none" />
+                    <div className="relative z-10">
+                      <div className="flex justify-center mb-5">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
+                          <div className="w-5 h-5 rounded-md bg-white/95 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-gradient-to-br from-purple-600 to-pink-600" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="h-2.5 bg-white/25 rounded-full w-2/3 mx-auto mb-1.5" />
+                      <div className="h-1.5 bg-white/12 rounded-full w-3/4 mx-auto mb-5" />
+                      <div className="space-y-2.5 mb-4">
+                        <div className="h-9 bg-white/5 rounded-lg border border-white/15 flex items-center px-3 group/input hover:bg-white/8 transition-colors">
+                          <div className="h-1.5 w-5 bg-white/25 rounded-full" />
+                        </div>
+                        <div className="h-9 bg-white/5 rounded-lg border border-white/15 flex items-center px-3 group/input hover:bg-white/8 transition-colors">
+                          <div className="h-1.5 w-6 bg-white/25 rounded-full" />
+                        </div>
+                      </div>
+                      <div className="h-9 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 mb-4 flex items-center justify-center shadow-lg shadow-purple-600/40 hover:shadow-purple-600/60 transition-all">
+                        <div className="h-1.5 w-8 bg-white/90 rounded-full" />
+                      </div>
+                      <div className="flex items-center gap-2.5 mb-4">
+                        <div className="h-px flex-1 bg-white/15" />
+                        <div className="h-1.5 w-5 bg-white/20 rounded-full text-xs text-white/50" />
+                        <div className="h-px flex-1 bg-white/15" />
+                      </div>
+                      <div className="grid grid-cols-3 gap-2">
+                        <div className="h-8 bg-white/5 rounded-lg border border-white/15 hover:bg-white/8 transition-colors" />
+                        <div className="h-8 bg-white/5 rounded-lg border border-white/15 hover:bg-white/8 transition-colors" />
+                        <div className="h-8 bg-white/5 rounded-lg border border-white/15 hover:bg-white/8 transition-colors" />
                       </div>
                     </div>
-                    <div className="h-2 bg-white/20 rounded-full w-1/2 mx-auto mb-1.5" />
-                    <div className="h-1.5 bg-white/10 rounded-full w-3/4 mx-auto mb-4" />
+                  </div>
+                ) : project.mockup === "ecommerce" ? (
+                  <div className="relative w-[75%] max-w-xs bg-black/70 rounded-xl border border-white/10 backdrop-blur-sm p-4 group-hover:scale-105 transition-transform duration-500 shadow-2xl">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="h-2 bg-white/20 rounded-full w-1/3" />
+                      <div className="w-5 h-5 rounded-md bg-white/10 border border-white/20" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-2.5 mb-4">
+                      <div className="aspect-square bg-gradient-to-br from-orange-500/40 to-primary/30 rounded-lg border border-white/10 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-sm bg-white/30" />
+                      </div>
+                      <div className="aspect-square bg-gradient-to-br from-white/10 to-white/5 rounded-lg border border-white/10 flex items-center justify-center">
+                        <div className="w-3 h-3 rounded-sm bg-white/20" />
+                      </div>
+                    </div>
                     <div className="space-y-2 mb-3">
-                      <div className="h-8 bg-white/5 rounded-md border border-white/10 flex items-center px-2.5">
-                        <div className="h-1.5 w-20 bg-white/20 rounded-full" />
+                      <div className="flex items-center justify-between">
+                        <div className="h-2 bg-white/20 rounded-full w-1/2" />
+                        <div className="h-1.5 bg-white/15 rounded-full w-1/4" />
                       </div>
-                      <div className="h-8 bg-white/5 rounded-md border border-white/10 flex items-center px-2.5">
-                        <div className="h-1.5 w-14 bg-white/20 rounded-full" />
+                      <div className="h-2 bg-white/15 rounded-full w-2/3" />
+                    </div>
+                    <div className="flex items-center gap-2 pt-2 border-t border-white/10">
+                      <div className="h-6 rounded-md bg-gradient-to-r from-orange-500 to-primary flex-1 flex items-center justify-center">
+                        <div className="h-1 w-4 bg-white/80 rounded-full" />
                       </div>
-                    </div>
-                    <div className="h-8 rounded-md bg-gradient-to-r from-purple-500 to-pink-500 mb-3 flex items-center justify-center">
-                      <div className="h-1.5 w-12 bg-white/80 rounded-full" />
-                    </div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="h-px flex-1 bg-white/10" />
-                      <div className="h-1.5 w-6 bg-white/20 rounded-full" />
-                      <div className="h-px flex-1 bg-white/10" />
-                    </div>
-                    <div className="grid grid-cols-3 gap-1.5">
-                      <div className="h-7 bg-white/5 rounded-md border border-white/10" />
-                      <div className="h-7 bg-white/5 rounded-md border border-white/10" />
-                      <div className="h-7 bg-white/5 rounded-md border border-white/10" />
+                      <div className="h-6 w-6 rounded-md border border-white/20 bg-white/5" />
                     </div>
                   </div>
                 ) : (
