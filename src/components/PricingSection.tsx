@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCheck } from "react-icons/fa6";
+import { useContactModal } from "./ContactModalProvider";
 import {
   HiOutlineSparkles,
   HiOutlineShieldCheck,
@@ -216,6 +217,7 @@ const categories: { id: Category; label: string; icon: IconType; count: number }
 
 export default function PricingSection() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
+  const { openModal } = useContactModal();
 
   const filteredPlans =
     activeCategory === "all"
@@ -431,8 +433,11 @@ export default function PricingSection() {
                       </div>
 
                       {/* CTA Button */}
-                      <motion.a
-                        href="#contact"
+                      <motion.button
+                        type="button"
+                        onClick={() =>
+                          openModal(`Interested in ${plan.name} Plan (${plan.price})`)
+                        }
                         whileHover={{ y: -2, scale: 1.01 }}
                         whileTap={{ y: 0, scale: 0.98 }}
                         className={`mt-auto w-full py-3 sm:py-3.5 rounded-xl font-semibold text-center text-sm tracking-wide transition-all duration-300 cursor-pointer inline-flex items-center justify-center gap-2 ${
@@ -443,7 +448,7 @@ export default function PricingSection() {
                       >
                         <span>Choose Plan</span>
                         <HiOutlineArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </motion.a>
+                      </motion.button>
                     </div>
                   </div>
                 </motion.div>
@@ -470,30 +475,33 @@ export default function PricingSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap">
-            <motion.a
-              href="#contact"
+            <motion.button
+              type="button"
+              onClick={() => openModal("Request a Quote")}
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
               className="px-8 md:px-10 py-3 md:py-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-lg"
             >
               Request a Quote
-            </motion.a>
-            <motion.a
-              href="#contact"
+            </motion.button>
+            <motion.button
+              type="button"
+              onClick={() => openModal("Start Your Project")}
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
               className="px-8 md:px-10 py-3 md:py-4 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/8 hover:border-white/40 transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-lg"
             >
               Start Your Project
-            </motion.a>
-            <motion.a
-              href="#contact"
+            </motion.button>
+            <motion.button
+              type="button"
+              onClick={() => openModal("Free Consultation Request")}
               whileHover={{ y: -2 }}
               whileTap={{ y: 0 }}
               className="px-8 md:px-10 py-3 md:py-4 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/8 hover:border-white/40 transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-lg"
             >
               Free Consultation
-            </motion.a>
+            </motion.button>
           </div>
         </motion.div>
       </div>
