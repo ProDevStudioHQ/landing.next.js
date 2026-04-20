@@ -19,6 +19,7 @@ import {
   HiOutlineClipboardDocumentList,
   HiOutlineGlobeAlt,
   HiOutlineSquares2X2,
+  HiOutlineChatBubbleLeftRight,
 } from "react-icons/hi2";
 
 type Category = "all" | "websites" | "systems";
@@ -190,6 +191,17 @@ const services: Service[] = [
     gradient: "from-violet-500/20 to-purple-500/5",
     iconColor: "text-violet-400",
     iconBg: "bg-violet-500/10 border-violet-500/20",
+  },
+  {
+    category: "systems",
+    icon: HiOutlineChatBubbleLeftRight,
+    title: "Support & Ticketing Systems",
+    description:
+      "Helpdesk platforms to manage customer support tickets, live chat, and knowledge bases.",
+    features: ["Ticket Management", "Live Chat", "Knowledge Base", "SLA Tracking"],
+    gradient: "from-sky-500/20 to-blue-500/5",
+    iconColor: "text-sky-400",
+    iconBg: "bg-sky-500/10 border-sky-500/20",
   },
 ];
 
