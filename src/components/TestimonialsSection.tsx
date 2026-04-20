@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "CEO, TechVenture Inc.",
+    name: "Lucas Moreau",
+    role: "Founder, Elevate Studio",
     content:
-      "They transformed our outdated website into a stunning, high-converting platform. Our leads increased by 300% in just two months. Absolutely world-class work.",
+      "What I liked was the back-and-forth before we even started coding. They pushed back on some of my initial specs and the final site ended up cleaner for it. Delivered on time, no surprises.",
     rating: 5,
   },
   {
-    name: "James Rodriguez",
-    role: "Operations Manager, ScaleUp",
+    name: "Noor Haddad",
+    role: "Operations Lead, Atlas Bookings",
     content:
-      "The admin dashboard they built is incredible. Real-time data, beautiful UI, and our team adopted it instantly. Best investment we've made this year.",
+      "We'd tried two off-the-shelf CRMs before — neither fit how our team actually works. The custom system they built is lighter, faster, and our staff picked it up in a day.",
     rating: 5,
   },
   {
-    name: "Emily Chen",
-    role: "Founder, GrowthLab",
+    name: "Marco Bellini",
+    role: "Co-founder, Mesa Digital",
     content:
-      "Our CRM system handles thousands of leads seamlessly. The automation features alone saved us 20+ hours per week. Can't recommend them enough.",
+      "Hired them to redo our login flow and ended up having them build the whole admin dashboard. Fair pricing, zero drama, and they actually answer fast when you need something after launch.",
     rating: 5,
   },
 ];

@@ -10,17 +10,11 @@ const footerLinks = {
     { label: "CRM Systems", href: "https://www.etsy.com/shop/DigitalStudioLF", external: true },
     { label: "Login Pages", href: "https://www.etsy.com/shop/DigitalStudioLF", external: true },
   ],
-  Company: [
-    { label: "About Us", href: "#", external: false },
+  Resources: [
     { label: "Portfolio", href: "#portfolio", external: false },
-    { label: "Careers", href: "#", external: false },
-    { label: "Blog", href: "#", external: false },
-  ],
-  Support: [
-    { label: "Help Center", href: "#", external: false },
-    { label: "Contact Us", href: "#contact", external: false },
+    { label: "Pricing", href: "#pricing", external: false },
     { label: "FAQ", href: "#faq", external: false },
-    { label: "Status", href: "#", external: false },
+    { label: "Contact Us", href: "#contact", external: false },
   ],
   Legal: [
     { label: "Privacy Policy", href: "#", external: false },
@@ -34,7 +28,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/5 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-6 gap-8 mb-12">
+        <div className="grid md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
