@@ -4,7 +4,6 @@ import StatsStrip from "@/components/StatsStrip";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
-import PortfolioSection from "@/components/PortfolioSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import HowItWorks from "@/components/HowItWorks";
@@ -27,7 +26,6 @@ export default function Home() {
         <ServicesSection />
         <WhyChooseUs />
         <TargetAudienceSection />
-        <PortfolioSection />
         <FeaturesSection />
         <IntegrationsSection />
         <HowItWorks />
