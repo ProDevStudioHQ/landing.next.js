@@ -127,7 +127,7 @@ export default function HeroSection() {
                 </div>
                 
                 <Image
-                  src="/images/idea digital.png"
+                  src="/images/idea-digital.png"
                   alt="Idea Digital Dashboard"
                   width={1200}
                   height={800}
