@@ -14,12 +14,14 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import ContactModalProvider from "@/components/ContactModalProvider";
+import BackgroundEffects from "@/components/BackgroundEffects";
 
 export default function Home() {
   return (
     <ContactModalProvider>
+      <BackgroundEffects />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <StatsStrip />
         <ServicesSection />
@@ -38,3 +40,4 @@ export default function Home() {
     </ContactModalProvider>
   );
 }
+
