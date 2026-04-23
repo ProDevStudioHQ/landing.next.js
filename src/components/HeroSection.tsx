@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -112,87 +113,29 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-16 relative max-w-4xl mx-auto"
         >
-          <div className="relative">
-            {/* Main mockup card */}
-            <div className="glass rounded-2xl p-1 glow-red">
-              <div className="bg-gradient-to-b from-white/[0.03] to-transparent rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-primary/60" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/60" />
-                  <div className="flex-1 h-6 bg-white/5 rounded-full ml-4 max-w-xs" />
+          <div className="relative group">
+            {/* Main mockup image */}
+            <div className="glass rounded-2xl p-2 glow-red relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(239,68,68,0.3)] hover:border-red-500/30">
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none rounded-2xl" />
+              
+              <div className="relative rounded-xl overflow-hidden bg-black/50 border border-white/10">
+                {/* Browser-like top bar */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5 bg-white/5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                  <div className="col-span-1 space-y-3">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <div
-                        key={i}
-                        className="h-3 bg-white/5 rounded-full"
-                        style={{ width: `${[80, 65, 75, 70, 85][i - 1]}%` }}
-                      />
-                    ))}
-                  </div>
-                  <div className="col-span-2 grid grid-cols-2 gap-3">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div
-                        key={i}
-                        className="aspect-[4/3] bg-white/[0.03] rounded-xl border border-white/5 flex items-center justify-center"
-                      >
-                        <div
-                          className={`w-8 h-8 rounded-lg ${
-                            i === 1
-                              ? "bg-primary/20"
-                              : i === 2
-                              ? "bg-blue-500/20"
-                              : i === 3
-                              ? "bg-green-500/20"
-                              : "bg-purple-500/20"
-                          }`}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                
+                <Image
+                  src="/images/idea digital.png"
+                  alt="Idea Digital Dashboard"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  priority
+                />
               </div>
             </div>
-
-            {/* Floating side cards */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-4 sm:-left-8 top-1/4 glass rounded-xl p-3 sm:p-4 hidden sm:block"
-            >
-              <div className="flex items-center gap-2 text-xs text-white/60">
-                <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400">
-                  ✓
-                </div>
-                <div>
-                  <div className="font-semibold text-white">+127%</div>
-                  <div>Conversion Rate</div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1,
-              }}
-              className="absolute -right-4 sm:-right-8 top-1/3 glass rounded-xl p-3 sm:p-4 hidden sm:block"
-            >
-              <div className="flex items-center gap-2 text-xs text-white/60">
-                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
-                  ★
-                </div>
-                <div>
-                  <div className="font-semibold text-white">4.9/5</div>
-                  <div>Client Rating</div>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </motion.div>
       </div>
