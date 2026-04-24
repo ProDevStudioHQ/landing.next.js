@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { FaGithub, FaEtsy } from "react-icons/fa6";
+import { SiFiverr } from "react-icons/si";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -69,6 +70,15 @@ export default function Navbar() {
             >
               <FaEtsy size={16} />
               Shop
+            </a>
+            <a
+              href="https://www.fiverr.com/theknight12?public_mode=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-4 py-2.5 rounded-full border border-green-600/30 text-green-500 text-sm font-semibold hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-300 flex items-center gap-2"
+            >
+              <SiFiverr size={22} />
+              Fiverr
             </a>
             <a
               href="#contact"

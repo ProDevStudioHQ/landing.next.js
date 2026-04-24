@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FaGithub, FaTwitter, FaLinkedin, FaEtsy } from "react-icons/fa6";
+import { SiFiverr } from "react-icons/si";
 
 const footerLinks = {
   Services: [
@@ -101,6 +102,18 @@ export default function Footer() {
                 Shop
               </span>
               <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full blur opacity-0 group-hover:opacity-15 transition duration-300 -z-10" />
+            </a>
+            <a
+              href="https://www.fiverr.com/theknight12?public_mode=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-green-500/[0.05] to-emerald-500/[0.02] border border-green-600/20 hover:border-green-500/50 hover:from-green-500/10 hover:to-emerald-500/5 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+            >
+              <SiFiverr size={22} className="text-green-500/80 group-hover:text-green-400 transition-colors" />
+              <span className="text-green-500/70 text-sm group-hover:text-green-300 transition-colors font-semibold">
+                Fiverr
+              </span>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full blur opacity-0 group-hover:opacity-15 transition duration-300 -z-10" />
             </a>
           </div>
         </div>

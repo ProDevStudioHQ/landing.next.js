@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaGithub, FaEtsy } from "react-icons/fa6";
+import { SiFiverr } from "react-icons/si";
 import { useContactModal } from "./ContactModalProvider";
 
 export default function CTASection() {
@@ -79,6 +80,24 @@ export default function CTASection() {
                   <span className="text-yellow-600/40 text-xs">Explore Digital Products</span>
                 </div>
                 <span className="ml-2 text-yellow-600/50 group-hover:text-yellow-400 group-hover:translate-x-1 transition-all">
+                  →
+                </span>
+              </a>
+
+              <a
+                href="https://www.fiverr.com/theknight12?public_mode=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-green-500/5 to-emerald-500/[0.02] border border-green-600/20 hover:border-green-500/50 hover:from-green-500/20 hover:to-emerald-500/5 transition-all duration-300 shadow-lg hover:shadow-green-500/20"
+              >
+                <SiFiverr size={26} className="text-green-500/80 group-hover:text-green-400 transition-colors" />
+                <div className="flex flex-col items-start">
+                  <span className="text-green-500 font-semibold group-hover:text-green-400 transition-colors">
+                    Hire Us on Fiverr
+                  </span>
+                  <span className="text-green-500/40 text-xs">See Services & Reviews</span>
+                </div>
+                <span className="ml-2 text-green-500/50 group-hover:text-green-400 group-hover:translate-x-1 transition-all">
                   →
                 </span>
               </a>
