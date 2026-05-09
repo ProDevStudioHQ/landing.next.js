@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaEtsy } from "react-icons/fa6";
+import { FaEtsy } from "react-icons/fa6";
 import { SiFiverr } from "react-icons/si";
 import { useContactModal } from "./ContactModalProvider";
 
@@ -27,41 +27,59 @@ export default function CTASection() {
             Ready to Build Something{" "}
             <span className="gradient-text">Incredible?</span>
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Let&apos;s turn your vision into a reality. Get a free consultation and
-            a custom proposal within 24 hours.
+          <p className="text-white/50 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            Get a free 30-minute consultation and a custom proposal within 24
+            hours. Limited spots available this month.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          {/* Trust micro-points */}
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-10 text-white/60 text-sm">
+            <span className="flex items-center gap-2">
+              <span className="text-primary font-bold">✓</span> Free
+              consultation
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="text-primary font-bold">✓</span> 24-hour
+              response time
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="text-primary font-bold">✓</span> No commitment
+              required
+            </span>
+          </div>
+
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <button
               type="button"
-              onClick={() => openModal("Start Your Project")}
+              onClick={() => openModal("Free Consultation Request")}
               className="group px-10 py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-bold rounded-full hover:shadow-2xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300 text-lg pulse-red"
             >
-              Start Your Project
+              Book My Free Consultation
               <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">
                 →
               </span>
             </button>
             <a
-              href="#services"
+              href="#pricing"
               className="px-10 py-4 glass border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-300"
             >
-              Learn More
+              See Pricing
             </a>
           </div>
 
-          <p className="text-white/30 text-sm">
-            No commitment required • Free consultation • 24hr response time
+          {/* Urgency line */}
+          <p className="text-white/40 text-sm mb-12">
+            🟢 3 spots left this month — book before they fill up
           </p>
 
-          {/* GitHub Portfolio & Etsy Shop Showcase */}
+          {/* Etsy & Fiverr Showcase */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="mt-16 pt-12 border-t border-white/10"
+            className="pt-12 border-t border-white/10"
           >
             <p className="text-white/50 text-sm font-medium mb-6">Want to buy something?</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

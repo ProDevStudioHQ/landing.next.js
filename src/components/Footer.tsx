@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FaGithub, FaTwitter, FaLinkedin, FaEtsy } from "react-icons/fa6";
+import { FaTwitter, FaLinkedin, FaEtsy } from "react-icons/fa6";
 import { SiFiverr } from "react-icons/si";
 
 const footerLinks = {
@@ -80,12 +80,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end">
             <a
-              href="https://github.com/ProDevStudioHQ"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#portfolio"
               className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-white/10 hover:border-primary/50 hover:from-primary/10 hover:to-primary/5 transition-all duration-300 shadow-lg hover:shadow-primary/20"
             >
-              <FaGithub size={18} className="text-white/70 group-hover:text-primary transition-colors" />
               <span className="text-white/60 text-sm group-hover:text-white transition-colors font-semibold">
                 View Our Work
               </span>

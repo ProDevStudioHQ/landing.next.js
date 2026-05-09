@@ -8,6 +8,7 @@ import { SiFiverr } from "react-icons/si";
 
 const navLinks = [
   { label: "Services", href: "#services" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },

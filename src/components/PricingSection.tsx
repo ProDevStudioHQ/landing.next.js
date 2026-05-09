@@ -14,6 +14,7 @@ import {
   HiOutlineSquares2X2,
   HiOutlineArrowRight,
   HiOutlineBolt,
+  HiOutlineEnvelope,
 } from "react-icons/hi2";
 import type { IconType } from "react-icons";
 
@@ -32,6 +33,8 @@ type Plan = {
   color: string;
   accentColor: string;
   highlighted: boolean;
+  ctaLabel?: string;
+  ctaHref?: string;
 };
 
 const pricingPlans: Plan[] = [
@@ -57,15 +60,36 @@ const pricingPlans: Plan[] = [
     highlighted: false,
   },
   {
-    name: "Website",
-    oldPrice: "$1,000",
-    price: "$500",
-    priceValue: 500,
+    name: "Landing Page",
+    oldPrice: "$500",
+    price: "$250",
+    priceValue: 250,
     description: "Starting from",
-    icon: HiOutlineGlobeAlt,
+    icon: HiOutlineBolt,
     category: "starter",
     features: [
-      "Modern business website",
+      "High-converting landing page",
+      "Custom design tailored to your brand",
+      "Mobile responsive",
+      "Lead capture form",
+      "Speed optimized",
+      "SEO basics",
+    ],
+    bestFor: "Product launches, lead generation, marketing campaigns",
+    color: "from-teal-500 to-cyan-500",
+    accentColor: "teal",
+    highlighted: false,
+  },
+  {
+    name: "Website",
+    oldPrice: "$1,400",
+    price: "$700",
+    priceValue: 700,
+    description: "Starting from",
+    icon: HiOutlineGlobeAlt,
+    category: "growth",
+    features: [
+      "Modern business website (5–7 pages)",
       "Responsive design",
       "Premium landing page structure",
       "Contact form",
@@ -73,16 +97,16 @@ const pricingPlans: Plan[] = [
       "Mobile optimization",
       "Basic SEO structure",
     ],
-    bestFor: "Businesses, agencies, travel agencies, freelancers, startups",
+    bestFor: "Businesses, agencies, freelancers, startups",
     color: "from-violet-500 to-purple-500",
     accentColor: "violet",
-    highlighted: false,
+    highlighted: true,
   },
   {
     name: "Dashboard",
-    oldPrice: "$2,000",
-    price: "$1,000",
-    priceValue: 1000,
+    oldPrice: "$2,400",
+    price: "$1,200",
+    priceValue: 1200,
     description: "Starting from",
     icon: HiOutlineChartBarSquare,
     category: "growth",
@@ -98,13 +122,13 @@ const pricingPlans: Plan[] = [
     bestFor: "Admin panels, analytics systems, booking management, internal tools",
     color: "from-indigo-500 to-violet-500",
     accentColor: "indigo",
-    highlighted: true,
+    highlighted: false,
   },
   {
     name: "CRM System",
-    oldPrice: "$6,000",
-    price: "$3,000",
-    priceValue: 3000,
+    oldPrice: "$5,000",
+    price: "$2,500",
+    priceValue: 2500,
     description: "Starting from",
     icon: HiOutlineUserGroup,
     category: "growth",
@@ -112,7 +136,7 @@ const pricingPlans: Plan[] = [
       "Lead management",
       "Client profiles",
       "Dashboard overview",
-      "Pipeline or workflow",
+      "Pipeline / workflow",
       "Notes and communication tracking",
       "Team access",
       "Custom business structure",
@@ -124,10 +148,10 @@ const pricingPlans: Plan[] = [
   },
   {
     name: "Enterprise Solutions",
-    oldPrice: "Custom",
-    price: "$5,000+",
-    priceValue: 5000,
-    description: "Starting from",
+    oldPrice: "",
+    price: "From $10,000",
+    priceValue: 10000,
+    description: "Custom Quote",
     icon: HiOutlineBuildingOffice2,
     category: "enterprise",
     features: [
@@ -144,6 +168,8 @@ const pricingPlans: Plan[] = [
     color: "from-orange-500 to-amber-500",
     accentColor: "orange",
     highlighted: false,
+    ctaLabel: "Book a Strategy Call",
+    ctaHref: "mailto:digitalstudiolf@gmail.com",
   },
 ];
 
@@ -157,6 +183,13 @@ const accentMap: Record<
     border: "border-blue-500/30",
     text: "text-blue-400",
     bg: "bg-blue-500/10",
+  },
+  teal: {
+    check: "text-teal-400",
+    ring: "ring-teal-500/20",
+    border: "border-teal-500/30",
+    text: "text-teal-400",
+    bg: "bg-teal-500/10",
   },
   violet: {
     check: "text-violet-400",
@@ -239,7 +272,7 @@ export default function PricingSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-8"
         >
           <motion.span
             initial={{ scale: 0.9, opacity: 0 }}
@@ -260,6 +293,39 @@ export default function PricingSection() {
             to full CRM and enterprise platforms. All plans now{" "}
             <span className="text-green-400 font-semibold">50% off</span>.
           </p>
+        </motion.div>
+
+        {/* Launch Offer Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="flex justify-center mb-10"
+        >
+          <div
+            style={{
+              background: "linear-gradient(90deg, #5B2C87, #0EA5A4)",
+              borderRadius: "10px",
+              padding: "14px 24px",
+              maxWidth: "700px",
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            <p
+              style={{
+                color: "#fff",
+                fontWeight: 600,
+                fontSize: "15px",
+                margin: 0,
+              }}
+              className="text-[13px] sm:text-[15px]"
+            >
+              🔥 Launch Offer — First 5 clients this month get an extra 10% off
+              + a free project audit. Only <strong>3 spots</strong> remaining.
+            </p>
+          </div>
         </motion.div>
 
         {/* Category Filter Tabs */}
@@ -302,14 +368,14 @@ export default function PricingSection() {
         {/* Pricing Cards Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-6 mb-20 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 mb-8 items-stretch"
         >
           <AnimatePresence mode="popLayout">
             {filteredPlans.map((plan, i) => {
               const accent = accentMap[plan.accentColor] || accentMap.blue;
               const Icon = plan.icon;
               const showSavings =
-                plan.oldPrice && plan.oldPrice !== plan.price && plan.oldPrice !== "Custom";
+                plan.oldPrice !== "" && plan.oldPrice !== plan.price;
               return (
                 <motion.div
                   layout
@@ -322,7 +388,7 @@ export default function PricingSection() {
                 >
                   {/* Highlighted outer glow */}
                   {plan.highlighted && (
-                    <div className="absolute -inset-[1.5px] rounded-[20px] bg-gradient-to-b from-indigo-500 via-violet-400/50 to-indigo-500/80 opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]" />
+                    <div className="absolute -inset-[1.5px] rounded-[20px] bg-gradient-to-b from-violet-500 via-purple-400/50 to-violet-500/80 opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]" />
                   )}
 
                   {/* Featured badge */}
@@ -331,7 +397,7 @@ export default function PricingSection() {
                       initial={{ y: -10, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ delay: i * 0.07 + 0.2 }}
-                      className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-[10px] font-bold tracking-[0.15em] uppercase shadow-xl shadow-indigo-500/40"
+                      className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 text-white text-[10px] font-bold tracking-[0.15em] uppercase shadow-xl shadow-violet-500/40"
                     >
                       <HiOutlineSparkles className="w-3 h-3" />
                       MOST POPULAR
@@ -342,7 +408,7 @@ export default function PricingSection() {
                   <div
                     className={`relative w-full rounded-[20px] flex flex-col transition-all duration-400 ease-out overflow-hidden ${
                       plan.highlighted
-                        ? "bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-indigo-500/30 shadow-2xl shadow-indigo-500/[0.08]"
+                        ? "bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-violet-500/30 shadow-2xl shadow-violet-500/[0.08]"
                         : "bg-gradient-to-b from-white/[0.04] to-white/[0.015] border border-white/[0.07] hover:border-white/[0.15] hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-white/[0.04]"
                     }`}
                   >
@@ -365,6 +431,11 @@ export default function PricingSection() {
                             50% OFF
                           </span>
                         )}
+                        {plan.highlighted && (
+                          <span className="text-[10px] font-bold text-green-400 bg-green-500/15 px-2 py-1 rounded-md border border-green-500/30">
+                            50% OFF
+                          </span>
+                        )}
                       </div>
 
                       {/* Plan Name */}
@@ -383,7 +454,7 @@ export default function PricingSection() {
                           <span
                             className={`text-[2.75rem] sm:text-[3rem] md:text-[2.75rem] lg:text-[3rem] xl:text-[2.5rem] 2xl:text-[3rem] font-black leading-[0.9] tracking-tight ${
                               plan.highlighted
-                                ? "bg-gradient-to-br from-white via-white to-violet-200 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(129,140,248,0.3)]"
+                                ? "bg-gradient-to-br from-white via-white to-violet-200 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(139,92,246,0.3)]"
                                 : "text-white"
                             }`}
                           >
@@ -433,22 +504,34 @@ export default function PricingSection() {
                       </div>
 
                       {/* CTA Button */}
-                      <motion.button
-                        type="button"
-                        onClick={() =>
-                          openModal(`Interested in ${plan.name} Plan (${plan.price})`)
-                        }
-                        whileHover={{ y: -2, scale: 1.01 }}
-                        whileTap={{ y: 0, scale: 0.98 }}
-                        className={`mt-auto w-full py-3 sm:py-3.5 rounded-xl font-semibold text-center text-sm tracking-wide transition-all duration-300 cursor-pointer inline-flex items-center justify-center gap-2 ${
-                          plan.highlighted
-                            ? `bg-gradient-to-r ${plan.color} text-white shadow-lg shadow-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/30`
-                            : "bg-white/[0.05] text-white/80 border border-white/[0.08] hover:bg-white/[0.1] hover:text-white hover:border-white/20"
-                        }`}
-                      >
-                        <span>Choose Plan</span>
-                        <HiOutlineArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </motion.button>
+                      {plan.ctaHref ? (
+                        <motion.a
+                          href={plan.ctaHref}
+                          whileHover={{ y: -2, scale: 1.01 }}
+                          whileTap={{ y: 0, scale: 0.98 }}
+                          className={`mt-auto w-full py-3 sm:py-3.5 rounded-xl font-semibold text-center text-sm tracking-wide transition-all duration-300 cursor-pointer inline-flex items-center justify-center gap-2 bg-gradient-to-r ${plan.color} text-white shadow-lg hover:shadow-xl hover:opacity-90`}
+                        >
+                          <HiOutlineEnvelope className="w-4 h-4" />
+                          <span>{plan.ctaLabel ?? "Choose Plan"}</span>
+                        </motion.a>
+                      ) : (
+                        <motion.button
+                          type="button"
+                          onClick={() =>
+                            openModal(`Interested in ${plan.name} Plan (${plan.price})`)
+                          }
+                          whileHover={{ y: -2, scale: 1.01 }}
+                          whileTap={{ y: 0, scale: 0.98 }}
+                          className={`mt-auto w-full py-3 sm:py-3.5 rounded-xl font-semibold text-center text-sm tracking-wide transition-all duration-300 cursor-pointer inline-flex items-center justify-center gap-2 ${
+                            plan.highlighted
+                              ? `bg-gradient-to-r ${plan.color} text-white shadow-lg shadow-violet-500/20 hover:shadow-xl hover:shadow-violet-500/30`
+                              : "bg-white/[0.05] text-white/80 border border-white/[0.08] hover:bg-white/[0.1] hover:text-white hover:border-white/20"
+                          }`}
+                        >
+                          <span>Choose Plan</span>
+                          <HiOutlineArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </motion.button>
+                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -456,6 +539,20 @@ export default function PricingSection() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {/* What's Not Included — transparency note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="text-center italic text-white/40 text-[13px] max-w-[700px] mx-auto mb-16 leading-relaxed"
+        >
+          Note: All packages include 30 days of free post-launch support for bug
+          fixes. Hosting, domain, and third-party tool fees are not included.
+          Custom integrations and advanced features may require additional scope
+          review.
+        </motion.p>
 
         {/* Closing CTA Section */}
         <motion.div
@@ -469,9 +566,10 @@ export default function PricingSection() {
             Flexible &amp; Tailored
           </h3>
           <p className="text-white/60 max-w-3xl mx-auto mb-10 leading-relaxed text-base sm:text-base md:text-lg lg:text-lg">
-            Every project is tailored to your business goals, required features,
-            design level, and workflow complexity. Final pricing depends on scope,
-            integrations, pages, modules, and customization level.
+            These are starting prices for our most common packages. Final pricing
+            is tailored to your specific scope, integrations, number of pages or
+            modules, and design complexity. Get a custom quote with a free
+            30-minute consultation — no commitment required.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap">

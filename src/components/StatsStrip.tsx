@@ -48,10 +48,10 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 const stats = [
-  { value: 120, suffix: "+", label: "Projects Delivered" },
+  { value: 25, suffix: "+", label: "Projects Delivered" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
-  { value: 50, suffix: "+", label: "Happy Clients" },
-  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 20, suffix: "+", label: "Happy Clients" },
+  { value: 3, suffix: "+", label: "Years Experience" },
 ];
 
 export default function StatsStrip() {

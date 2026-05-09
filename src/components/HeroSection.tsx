@@ -31,7 +31,7 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-sm text-white/70 mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          Trusted by 200+ businesses worldwide
+          Trusted by growing businesses worldwide
         </motion.div>
 
         {/* Headline */}
