@@ -426,12 +426,7 @@ export default function PricingSection() {
                         >
                           <Icon className={`w-5 h-5 ${accent.text}`} />
                         </div>
-                        {showSavings && (
-                          <span className="text-[10px] font-bold text-green-400 bg-green-500/15 px-2 py-1 rounded-md border border-green-500/30">
-                            50% OFF
-                          </span>
-                        )}
-                        {plan.highlighted && (
+                        {(showSavings || plan.highlighted) && (
                           <span className="text-[10px] font-bold text-green-400 bg-green-500/15 px-2 py-1 rounded-md border border-green-500/30">
                             50% OFF
                           </span>
