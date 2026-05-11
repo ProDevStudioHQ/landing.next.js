@@ -14,58 +14,49 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Atlas Bookings",
-    category: "CRM",
-    description:
-      "A travel CRM with real-time booking management, client profiles, and automated follow-ups.",
-    tech: ["Next.js", "PostgreSQL", "Tailwind"],
-    gradient: "from-primary/30 to-orange-500/20",
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop&auto=format",
-  },
-  {
-    title: "Mesa Digital",
-    category: "Dashboard",
-    description:
-      "Admin dashboard with interactive analytics, KPI tracking, and team collaboration tools.",
-    tech: ["React", "D3.js", "Node.js"],
-    gradient: "from-blue-500/30 to-cyan-500/20",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format",
-  },
-  {
-    title: "Elevate Studio",
+    title: "Business Website",
     category: "Website",
     description:
       "High-converting business website with SEO optimization, blog, and lead capture forms.",
     tech: ["Next.js", "Tailwind", "Prisma"],
     gradient: "from-emerald-500/30 to-green-500/20",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&auto=format",
+    image: "https://getshared.com/dashboard/api/files/c8237a68-4d33-11f1-8264-ac1f6b763f30/stream?share=ypt8H2foMSlH",
   },
   {
-    title: "Nordic Login",
-    category: "Login",
+    title: "Landing Page",
+    category: "Landing Page",
+    description:
+      "Stunning landing page designed to convert visitors into leads with fast load times and compelling copy.",
+    tech: ["Next.js", "Tailwind", "Framer Motion"],
+    gradient: "from-primary/30 to-orange-500/20",
+    image: "https://getshared.com/dashboard/api/files/b1843741-4d36-11f1-8264-ac1f6b763f30/stream?share=2rIdMvxHsVap",
+  },
+  {
+    title: "Analytics Dashboard",
+    category: "Dashboard",
+    description:
+      "Admin dashboard with interactive analytics, KPI tracking, and team collaboration tools.",
+    tech: ["React", "D3.js", "Node.js"],
+    gradient: "from-blue-500/30 to-cyan-500/20",
+    image: "https://getshared.com/dashboard/api/files/c2394594-4d33-11f1-8264-ac1f6b763f30/stream?share=FSgokV3PcvWf",
+  },
+  {
+    title: "CRM System",
+    category: "CRM System",
+    description:
+      "A powerful CRM with real-time client management, automated follow-ups, and pipeline tracking.",
+    tech: ["Next.js", "PostgreSQL", "Tailwind"],
+    gradient: "from-amber-500/30 to-yellow-500/20",
+    image: "https://getshared.com/dashboard/api/files/a84c3b56-4d35-11f1-8264-ac1f6b763f30/stream?share=EVF7qJLCrfE6",
+  },
+  {
+    title: "Login Page",
+    category: "Login Page",
     description:
       "Modern SaaS authentication page with social providers, magic links, and 2FA support.",
     tech: ["TypeScript", "NextAuth", "Tailwind"],
     gradient: "from-purple-500/30 to-pink-500/20",
-    image: "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&h=400&fit=crop&auto=format",
-  },
-  {
-    title: "Helia Commerce",
-    category: "Website",
-    description:
-      "E-commerce store with seamless checkout flow, inventory management, and payment integrations.",
-    tech: ["Next.js", "Stripe", "MongoDB"],
-    gradient: "from-amber-500/30 to-yellow-500/20",
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&h=400&fit=crop&auto=format",
-  },
-  {
-    title: "Volta Tickets",
-    category: "Dashboard",
-    description:
-      "Support portal with ticket management, priority queues, SLA tracking, and customer comms.",
-    tech: ["React", "Node.js", "Redis"],
-    gradient: "from-indigo-500/30 to-violet-500/20",
-    image: "https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=600&h=400&fit=crop&auto=format",
+    image: "https://getshared.com/dashboard/api/files/7f432f2f-4d36-11f1-8264-ac1f6b763f30/stream?share=o9MPwxH8NGDV",
   },
 ];
 
@@ -104,14 +95,16 @@ export default function PortfolioSection() {
               className="group glass rounded-2xl overflow-hidden hover:border-primary/20 transition-all duration-500 glass-hover"
             >
               {/* Preview area with image */}
-              <div className="relative h-48 sm:h-56 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+              <div className={`relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+                {project.image && (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                )}
                 <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-60`} />
 
                 {/* Category badge */}
