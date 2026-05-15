@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCheck } from "react-icons/fa6";
 import { useContactModal } from "./ContactModalProvider";
+import { getKnownEmail, submitLead } from "@/lib/crm";
 import {
   HiOutlineSparkles,
   HiOutlineShieldCheck,
@@ -251,6 +252,23 @@ const categories: { id: Category; label: string; icon: IconType; count: number }
 export default function PricingSection() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const { openModal } = useContactModal();
+
+  const handleChoosePlan = (plan: Plan) => {
+    const planLabel = `${plan.name} — ${plan.price}`;
+
+    // Log pricing intent to CRM if we already know the visitor
+    const email = getKnownEmail();
+    if (email) {
+      void submitLead({
+        email,
+        source: "pricing_cta",
+        planInterest: planLabel,
+        projectType: planLabel,
+      });
+    }
+
+    openModal(`Interested in ${plan.name} Plan (${plan.price})`);
+  };
 
   const filteredPlans =
     activeCategory === "all"
@@ -512,9 +530,7 @@ export default function PricingSection() {
                       ) : (
                         <motion.button
                           type="button"
-                          onClick={() =>
-                            openModal(`Interested in ${plan.name} Plan (${plan.price})`)
-                          }
+                          onClick={() => handleChoosePlan(plan)}
                           whileHover={{ y: -2, scale: 1.01 }}
                           whileTap={{ y: 0, scale: 0.98 }}
                           className={`mt-auto w-full py-3 sm:py-3.5 rounded-xl font-semibold text-center text-sm tracking-wide transition-all duration-300 cursor-pointer inline-flex items-center justify-center gap-2 ${

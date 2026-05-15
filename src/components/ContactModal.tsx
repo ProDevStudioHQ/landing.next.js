@@ -9,6 +9,7 @@ import {
   HiOutlineCheckCircle,
   HiOutlineExclamationTriangle,
 } from "react-icons/hi2";
+import { submitLead } from "@/lib/crm";
 
 type Props = {
   isOpen: boolean;
@@ -74,6 +75,16 @@ export default function ContactModal({ isOpen, onClose, subject = "" }: Props) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+
+    // Fire-and-forget to CRM in parallel with the email-delivery service.
+    // CRM is the system of record; formsubmit keeps email notifications working.
+    void submitLead({
+      email: formData.email,
+      name: formData.name,
+      message: formData.message,
+      projectType: formData.subject,
+      source: "contact_form",
+    });
 
     try {
       const res = await fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {

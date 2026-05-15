@@ -2,27 +2,29 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { submitLead } from "@/lib/crm";
 
 export default function EmailCaptureSection() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setLoading(true);
+    setError(false);
 
-    // TODO: Wire up to your email provider (Mailchimp, ConvertKit, etc.)
-    // For now, just log to console and show success state
-    console.log("Email captured:", email);
-
-    // Simulate a small delay for UX
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    const ok = await submitLead({ email, source: "lead_magnet" });
 
     setLoading(false);
-    setSubmitted(true);
+    if (ok) {
+      setSubmitted(true);
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -120,6 +122,13 @@ export default function EmailCaptureSection() {
                 )}
               </button>
             </form>
+          )}
+
+          {/* Error message */}
+          {error && !submitted && (
+            <p className="text-red-400 text-sm mt-3">
+              Something went wrong. Please try again.
+            </p>
           )}
 
           {/* Disclaimer */}

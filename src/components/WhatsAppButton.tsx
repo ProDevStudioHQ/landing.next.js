@@ -2,14 +2,23 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getKnownEmail, submitLead } from "@/lib/crm";
+
+// TODO: Confirm this is your real WhatsApp business number.
+// Format: country code + number, no plus sign, no spaces.
+const WHATSAPP_NUMBER = "212612345678";
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  // TODO: Replace PHONENUMBER with your real WhatsApp business number
-  // Format: country code + number, no plus sign (e.g. 212600000000)
-  const whatsappUrl =
-    "https://wa.me/PHONENUMBER?text=Hi%20Digital%20Studio%20LF%2C%20I%27d%20like%20to%20ask%20about%20your%20services";
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20Digital%20Studio%20LF%2C%20I%27d%20like%20to%20ask%20about%20your%20services`;
+
+  const handleClick = () => {
+    const email = getKnownEmail();
+    if (email) {
+      void submitLead({ email, source: "whatsapp_click" });
+    }
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -33,6 +42,7 @@ export default function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
+        onClick={handleClick}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
         className="group flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(37,211,102,0.4)]"
