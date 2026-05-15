@@ -1,22 +1,25 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import StatsStrip from "@/components/StatsStrip";
-import ServicesSection from "@/components/ServicesSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import TargetAudienceSection from "@/components/TargetAudienceSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import IntegrationsSection from "@/components/IntegrationsSection";
-import HowItWorks from "@/components/HowItWorks";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import PortfolioSection from "@/components/PortfolioSection";
-import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
-import EmailCaptureSection from "@/components/EmailCaptureSection";
-import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
 import ContactModalProvider from "@/components/ContactModalProvider";
 import BackgroundEffects from "@/components/BackgroundEffects";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
+// Below-the-fold sections: lazy-load to speed up first paint on mobile.
+const StatsStrip = dynamic(() => import("@/components/StatsStrip"));
+const ServicesSection = dynamic(() => import("@/components/ServicesSection"));
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
+const TargetAudienceSection = dynamic(() => import("@/components/TargetAudienceSection"));
+const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"));
+const IntegrationsSection = dynamic(() => import("@/components/IntegrationsSection"));
+const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
+const PortfolioSection = dynamic(() => import("@/components/PortfolioSection"));
+const PricingSection = dynamic(() => import("@/components/PricingSection"));
+const FAQSection = dynamic(() => import("@/components/FAQSection"));
+const EmailCaptureSection = dynamic(() => import("@/components/EmailCaptureSection"));
+const CTASection = dynamic(() => import("@/components/CTASection"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"));
 
 export default function Home() {
   return (

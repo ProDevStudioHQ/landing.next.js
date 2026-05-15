@@ -24,12 +24,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close mobile menu when resizing up to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024 && mobileOpen) setMobileOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [mobileOpen]);
+
   return (
+    <>
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-500 ${
         scrolled
           ? "bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-2xl"
           : "bg-transparent"
@@ -91,12 +101,14 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-white/80 hover:text-white"
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="lg:hidden relative z-50 p-3 -mr-2 text-white/80 hover:text-white active:text-primary cursor-pointer touch-manipulation"
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 pointer-events-none"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -121,36 +133,41 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/5"
-          >
-            <div className="px-4 py-6 space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href="#contact"
-                className="block mt-4 px-4 py-3 bg-gradient-to-r from-primary to-primary-dark text-white text-center rounded-full font-semibold"
-              >
-                Get Started
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.nav>
+
+    {/* Mobile Menu — rendered as sibling so it isn't affected by the nav's transform animation */}
+    <AnimatePresence>
+      {mobileOpen && (
+        <motion.div
+          key="mobile-menu"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2 }}
+          className="lg:hidden fixed top-16 left-0 right-0 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto bg-black/95 backdrop-blur-xl border-t border-white/5"
+        >
+          <div className="px-4 py-6 space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="block mt-4 px-4 py-3 bg-gradient-to-r from-primary to-primary-dark text-white text-center rounded-full font-semibold"
+            >
+              Get Started
+            </a>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
