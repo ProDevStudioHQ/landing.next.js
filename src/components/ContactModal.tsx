@@ -76,9 +76,8 @@ export default function ContactModal({ isOpen, onClose, subject = "" }: Props) {
     e.preventDefault();
     setStatus("sending");
 
-    // Fire-and-forget to CRM in parallel with the email-delivery service.
-    // CRM is the system of record; formsubmit keeps email notifications working.
-    void submitLead({
+    // CRM is the system of record — its success drives the UI.
+    const crmOk = await submitLead({
       email: formData.email,
       name: formData.name,
       message: formData.message,
@@ -86,31 +85,25 @@ export default function ContactModal({ isOpen, onClose, subject = "" }: Props) {
       source: "contact_form",
     });
 
-    try {
-      const res = await fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          _subject: formData.subject || "Website Inquiry",
-          _template: "table",
-          _captcha: "false",
-          message: formData.message,
-        }),
-      });
+    // Fire-and-forget email notification via formsubmit. Failures here
+    // (rate-limits, network) must not break the user's success experience.
+    void fetch(`https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        _subject: formData.subject || "Website Inquiry",
+        _template: "table",
+        _captcha: "false",
+        message: formData.message,
+      }),
+    }).catch(() => {});
 
-      if (res.ok) {
-        setStatus("success");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
+    setStatus(crmOk ? "success" : "error");
   };
 
   return (
