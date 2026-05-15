@@ -31,16 +31,71 @@
   background: rgba(239, 68, 68, 0.6);
 }
 
-/* Smooth scroll */
+/* Smooth scroll + offset for fixed navbar so anchor links don't get covered */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem; /* matches navbar h-16/h-20 */
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
   background: #000000;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Inherit color on all links — kill default blue/purple/visited */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+
+/* Prevent words from blowing out small viewports */
+h1, h2, h3, h4, h5, h6, p, li, a, span {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Allow flex/grid children to shrink so long content can't push the page wider */
+* {
+  min-width: 0;
+}
+
+/* Tap targets and image defaults on mobile */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Respect reduced-motion + cut heavy animations on small screens to fix scroll jank */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .aurora-container,
+  .noise-overlay {
+    display: none; /* heavy filters cause scroll jank on phones */
+  }
 }
 
 /* Glass utility */
