@@ -1,3 +1,5 @@
+import { identifyVisitor } from "./tracker";
+
 const CRM_URL = process.env.NEXT_PUBLIC_CRM_API_URL;
 const CRM_KEY = process.env.NEXT_PUBLIC_CRM_API_KEY || "";
 
@@ -45,6 +47,7 @@ export async function submitLead(payload: LeadPayload): Promise<boolean> {
       try {
         localStorage.setItem("dsf_email", payload.email);
       } catch {}
+      identifyVisitor(payload.email).catch(() => {});
     }
     return res.ok;
   } catch (err) {
