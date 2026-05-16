@@ -121,11 +121,14 @@ export default function HeroSection() {
                 
                 <Image
                   src="/images/idea-digital.png"
-                  alt="Idea Digital Dashboard"
+                  alt="Digital Studio LF — premium dashboard and CRM product preview"
                   width={1200}
                   height={800}
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                   priority
+                  fetchPriority="high"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1024px"
+                  quality={85}
                 />
               </div>
             </div>

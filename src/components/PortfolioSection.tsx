@@ -99,10 +99,11 @@ export default function PortfolioSection() {
                 {project.image && (
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} — ${project.category} built by Digital Studio LF`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={80}
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
