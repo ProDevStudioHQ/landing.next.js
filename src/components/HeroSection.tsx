@@ -99,12 +99,13 @@ export default function HeroSection() {
           ))}
         </motion.div>
 
-        {/* Floating mockup cards */}
+        {/* Floating mockup cards — desktop only; mobile Chrome corrupts
+            this entire image area on certain devices. */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-16 relative max-w-4xl mx-auto"
+          className="hidden md:block mt-16 relative max-w-4xl mx-auto"
         >
           <div className="relative group">
             {/* Main mockup image */}
