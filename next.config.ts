@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: false,
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+      { protocol: "https", hostname: "getshared.com", pathname: "/**" },
     ],
   },
 
