@@ -236,8 +236,8 @@ export default function ServicesSection() {
 
   return (
     <section id="services" className="section-padding relative overflow-hidden">
-      {/* Ambient background */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Ambient background (desktop only — blur orbs tear on mobile GPUs) */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/[0.04] rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-500/[0.03] rounded-full blur-[100px]" />
       </div>

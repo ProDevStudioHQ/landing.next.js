@@ -96,6 +96,21 @@ img, video {
   .noise-overlay {
     display: none; /* heavy filters cause scroll jank on phones */
   }
+
+  /* Android Chromium can't composite large blurs (80px+) — they tear,
+     bleed frames, and cause visible ghosting of buttons/pills. Neutralize
+     every oversized ambient orb across sections. */
+  .blur-3xl,
+  .blur-2xl,
+  [class*="blur-[80px]"],
+  [class*="blur-[90px]"],
+  [class*="blur-[100px]"],
+  [class*="blur-[120px]"],
+  [class*="blur-[140px]"],
+  [class*="blur-[160px]"] {
+    filter: none !important;
+    opacity: 0 !important;
+  }
 }
 
 /* Glass utility */
