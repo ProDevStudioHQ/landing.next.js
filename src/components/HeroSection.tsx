@@ -23,17 +23,6 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 text-sm text-white/70 mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          Trusted by growing businesses worldwide
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -73,8 +62,17 @@ export default function HeroSection() {
               →
             </span>
           </a>
-
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="text-sm sm:text-base text-white/60 mb-12 flex items-center justify-center gap-2"
+        >
+          <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          Now accepting projects for May 2026 — limited slots available.
+        </motion.p>
 
         {/* Trust Badges */}
         <motion.div

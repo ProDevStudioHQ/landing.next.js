@@ -126,7 +126,7 @@ export default function PortfolioSection() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-1 text-xs font-medium rounded-md bg-white/5 text-white/50 border border-white/5"
+                      className="px-3 py-1 rounded-full bg-zinc-800 text-xs text-zinc-300"
                     >
                       {t}
                     </span>

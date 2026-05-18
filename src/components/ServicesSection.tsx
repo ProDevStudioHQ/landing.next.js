@@ -347,11 +347,11 @@ export default function ServicesSection() {
                     </p>
 
                     {/* Features */}
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {service.features.map((feature) => (
                         <span
                           key={feature}
-                          className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-white/5 text-white/60 border border-white/5 group-hover:border-white/10 transition-colors"
+                          className="px-3 py-1 rounded-full bg-zinc-800 text-xs text-zinc-300"
                         >
                           {feature}
                         </span>

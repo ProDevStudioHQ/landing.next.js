@@ -4,12 +4,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getKnownEmail, submitLead } from "@/lib/crm";
 
-// TODO: Confirm this is your real WhatsApp business number.
-// Format: country code + number, no plus sign, no spaces.
-const WHATSAPP_NUMBER = "212612345678";
+// Set NEXT_PUBLIC_WHATSAPP_NUMBER in your env (country code + number, no plus, no spaces).
+// e.g. NEXT_PUBLIC_WHATSAPP_NUMBER=212612345678
+// If unset, the button is hidden so users never hit a dead placeholder.
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
+
+  if (!WHATSAPP_NUMBER) return null;
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi%20Digital%20Studio%20LF%2C%20I%27d%20like%20to%20ask%20about%20your%20services`;
 

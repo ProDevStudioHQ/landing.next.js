@@ -5,14 +5,12 @@ import ContactModalProvider from "@/components/ContactModalProvider";
 import BackgroundEffects from "@/components/BackgroundEffects";
 
 // Below-the-fold sections: lazy-load to speed up first paint on mobile.
-const StatsStrip = dynamic(() => import("@/components/StatsStrip"));
 const ServicesSection = dynamic(() => import("@/components/ServicesSection"));
 const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
 const TargetAudienceSection = dynamic(() => import("@/components/TargetAudienceSection"));
 const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"));
 const IntegrationsSection = dynamic(() => import("@/components/IntegrationsSection"));
 const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
-const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
 const PortfolioSection = dynamic(() => import("@/components/PortfolioSection"));
 const PricingSection = dynamic(() => import("@/components/PricingSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
@@ -28,14 +26,12 @@ export default function Home() {
       <Navbar />
       <main className="relative z-10">
         <HeroSection />
-        <StatsStrip />
         <ServicesSection />
         <WhyChooseUs />
         <TargetAudienceSection />
         <FeaturesSection />
         <IntegrationsSection />
         <HowItWorks />
-        <TestimonialsSection />
         <PortfolioSection />
         <PricingSection />
         <FAQSection />

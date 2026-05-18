@@ -68,9 +68,8 @@ export default function CTASection() {
             </a>
           </div>
 
-          {/* Urgency line */}
           <p className="text-white/40 text-sm mb-12">
-            🟢 3 spots left this month — book before they fill up
+            Free 30-min consultation — no commitment.
           </p>
 
           {/* Etsy & Fiverr Showcase */}

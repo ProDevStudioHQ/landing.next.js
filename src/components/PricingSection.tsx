@@ -340,8 +340,7 @@ export default function PricingSection() {
               }}
               className="text-[13px] sm:text-[15px]"
             >
-              🔥 Launch Offer — First 5 clients this month get an extra 10% off
-              + a free project audit. Only <strong>3 spots</strong> remaining.
+              Free 30-min consultation — no commitment.
             </p>
           </div>
         </motion.div>

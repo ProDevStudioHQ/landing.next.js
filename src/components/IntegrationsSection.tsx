@@ -20,21 +20,21 @@ import {
 } from "react-icons/si";
 
 const integrations = [
-  { name: "Gmail", description: "Send and manage emails easily", Icon: SiGmail, color: "#EA4335", connected: true },
-  { name: "Mailchimp", description: "Run smarter email campaigns", Icon: SiMailchimp, color: "#FFE01B", connected: true },
-  { name: "WhatsApp", description: "Communicate faster with clients", Icon: SiWhatsapp, color: "#25D366", connected: false },
-  { name: "Stripe", description: "Accept secure online payments", Icon: SiStripe, color: "#635BFF", connected: true },
-  { name: "PayPal", description: "Process global payments easily", Icon: SiPaypal, color: "#003087", connected: false },
-  { name: "Google Drive", description: "Store and manage files", Icon: SiGoogledrive, color: "#4285F4", connected: true },
-  { name: "Slack", description: "Improve team communication", Icon: SiSlack, color: "#E01E5A", connected: true },
-  { name: "Notion", description: "Organize notes and workflows", Icon: SiNotion, color: "#000000", connected: false },
-  { name: "Trello", description: "Track projects visually", Icon: SiTrello, color: "#0079BF", connected: false },
-  { name: "HubSpot", description: "Sync leads and customer data", Icon: SiHubspot, color: "#FF7A59", connected: true },
-  { name: "Dropbox", description: "Share and sync files securely", Icon: SiDropbox, color: "#0061FF", connected: false },
-  { name: "Discord", description: "Build community engagement", Icon: SiDiscord, color: "#5865F2", connected: false },
-  { name: "Zapier", description: "Automate tasks across apps", Icon: SiZapier, color: "#FF4F00", connected: true },
-  { name: "Calendly", description: "Schedule meetings effortlessly", Icon: SiCalendly, color: "#006B7D", connected: false },
-  { name: "Meta", description: "Manage social media and ads", Icon: SiMeta, color: "#0A66C2", connected: true },
+  { name: "Gmail", description: "Send and manage emails easily", Icon: SiGmail, color: "#EA4335"},
+  { name: "Mailchimp", description: "Run smarter email campaigns", Icon: SiMailchimp, color: "#FFE01B"},
+  { name: "WhatsApp", description: "Communicate faster with clients", Icon: SiWhatsapp, color: "#25D366"},
+  { name: "Stripe", description: "Accept secure online payments", Icon: SiStripe, color: "#635BFF"},
+  { name: "PayPal", description: "Process global payments easily", Icon: SiPaypal, color: "#003087"},
+  { name: "Google Drive", description: "Store and manage files", Icon: SiGoogledrive, color: "#4285F4"},
+  { name: "Slack", description: "Improve team communication", Icon: SiSlack, color: "#E01E5A"},
+  { name: "Notion", description: "Organize notes and workflows", Icon: SiNotion, color: "#000000"},
+  { name: "Trello", description: "Track projects visually", Icon: SiTrello, color: "#0079BF"},
+  { name: "HubSpot", description: "Sync leads and customer data", Icon: SiHubspot, color: "#FF7A59"},
+  { name: "Dropbox", description: "Share and sync files securely", Icon: SiDropbox, color: "#0061FF"},
+  { name: "Discord", description: "Build community engagement", Icon: SiDiscord, color: "#5865F2"},
+  { name: "Zapier", description: "Automate tasks across apps", Icon: SiZapier, color: "#FF4F00"},
+  { name: "Calendly", description: "Schedule meetings effortlessly", Icon: SiCalendly, color: "#006B7D"},
+  { name: "Meta", description: "Manage social media and ads", Icon: SiMeta, color: "#0A66C2"},
 ];
 
 export default function IntegrationsSection() {
@@ -66,12 +66,11 @@ export default function IntegrationsSection() {
             Integrations
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4">
-            Powerful Integrations for a{" "}
-            <span className="gradient-text">Smarter Workflow</span>
+            <span className="gradient-text">Tools We Integrate With</span>
           </h2>
           <p className="text-white/50 max-w-2xl mx-auto text-lg mb-4">
-            Connect your website, dashboard, CRM, or login system with the tools
-            your business already uses.
+            We connect your website, dashboard, or CRM with the tools your
+            business already uses.
           </p>
           <p className="text-white/30 max-w-3xl mx-auto text-sm leading-relaxed">
             Our integrations help you automate workflows, centralize communication,
@@ -91,11 +90,6 @@ export default function IntegrationsSection() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="group relative glass rounded-2xl p-5 text-center hover:border-primary/30 transition-all duration-500 glass-hover glow-red-hover cursor-pointer"
             >
-              {/* Connected badge */}
-              {integration.connected && (
-                <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/50" />
-              )}
-
               {/* Gradient glow behind icon */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="w-16 h-16 bg-primary/10 rounded-full blur-xl" />
@@ -116,12 +110,6 @@ export default function IntegrationsSection() {
                 {integration.description}
               </p>
 
-              {/* Connected label */}
-              {integration.connected && (
-                <span className="inline-block mt-2 px-2 py-0.5 text-[10px] font-medium rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  Connected
-                </span>
-              )}
             </motion.div>
           ))}
         </div>
