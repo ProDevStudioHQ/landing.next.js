@@ -20,7 +20,7 @@ const projects: Project[] = [
       "High-converting business website with SEO optimization, blog, and lead capture forms.",
     tech: ["Next.js", "Tailwind", "Prisma"],
     gradient: "from-emerald-500/30 to-green-500/20",
-    image: "https://getshared.com/dashboard/api/files/c8237a68-4d33-11f1-8264-ac1f6b763f30/stream?share=ypt8H2foMSlH",
+    image: "/portfolio/business-website.webp",
   },
   {
     title: "Landing Page",
@@ -29,7 +29,7 @@ const projects: Project[] = [
       "Stunning landing page designed to convert visitors into leads with fast load times and compelling copy.",
     tech: ["Next.js", "Tailwind", "Framer Motion"],
     gradient: "from-primary/30 to-orange-500/20",
-    image: "https://getshared.com/dashboard/api/files/b1843741-4d36-11f1-8264-ac1f6b763f30/stream?share=2rIdMvxHsVap",
+    image: "/portfolio/landing-page.webp",
   },
   {
     title: "Analytics Dashboard",
@@ -38,7 +38,7 @@ const projects: Project[] = [
       "Admin dashboard with interactive analytics, KPI tracking, and team collaboration tools.",
     tech: ["React", "D3.js", "Node.js"],
     gradient: "from-blue-500/30 to-cyan-500/20",
-    image: "https://getshared.com/dashboard/api/files/c2394594-4d33-11f1-8264-ac1f6b763f30/stream?share=FSgokV3PcvWf",
+    image: "/portfolio/analytics-dashboard.webp",
   },
   {
     title: "CRM System",
@@ -47,7 +47,7 @@ const projects: Project[] = [
       "A powerful CRM with real-time client management, automated follow-ups, and pipeline tracking.",
     tech: ["Next.js", "PostgreSQL", "Tailwind"],
     gradient: "from-amber-500/30 to-yellow-500/20",
-    image: "https://getshared.com/dashboard/api/files/a84c3b56-4d35-11f1-8264-ac1f6b763f30/stream?share=EVF7qJLCrfE6",
+    image: "/portfolio/crm-system.webp",
   },
   {
     title: "Login Page",
@@ -56,7 +56,7 @@ const projects: Project[] = [
       "Modern SaaS authentication page with social providers, magic links, and 2FA support.",
     tech: ["TypeScript", "NextAuth", "Tailwind"],
     gradient: "from-purple-500/30 to-pink-500/20",
-    image: "https://getshared.com/dashboard/api/files/7f432f2f-4d36-11f1-8264-ac1f6b763f30/stream?share=o9MPwxH8NGDV",
+    image: "/portfolio/login-page.webp",
   },
 ];
 

@@ -30,9 +30,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-6"
         >
-          We Build Digital
-          <br />
-          <span className="gradient-text">Products That Convert</span>
+          Landing pages, dashboards, and CRMs{" "}
+          <span className="gradient-text">delivered in 7–21 days.</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -42,8 +41,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Premium websites, admin dashboards, CRM systems, and login pages — 
-          designed to grow your business and impress your users.
+          For founders and agencies who need a clean, fast, working product —
+          not a template, not a 3-month sprint.
         </motion.p>
 
         {/* CTAs */}
@@ -57,7 +56,7 @@ export default function HeroSection() {
             href="#pricing"
             className="group px-8 py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold rounded-full hover:shadow-2xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300 text-base"
           >
-            View Packages
+            See pricing
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">
               →
             </span>

@@ -15,6 +15,7 @@ const PortfolioSection = dynamic(() => import("@/components/PortfolioSection"));
 const PricingSection = dynamic(() => import("@/components/PricingSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
 const EmailCaptureSection = dynamic(() => import("@/components/EmailCaptureSection"));
+const ContactForm = dynamic(() => import("@/components/ContactForm"));
 const CTASection = dynamic(() => import("@/components/CTASection"));
 const Footer = dynamic(() => import("@/components/Footer"));
 const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"));
@@ -36,6 +37,7 @@ export default function Home() {
         <PricingSection />
         <FAQSection />
         <EmailCaptureSection />
+        <ContactForm />
         <CTASection />
       </main>
       <Footer />

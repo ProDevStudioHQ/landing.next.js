@@ -3,10 +3,8 @@
 import { motion } from "framer-motion";
 import { FaEtsy } from "react-icons/fa6";
 import { SiFiverr } from "react-icons/si";
-import { useContactModal } from "./ContactModalProvider";
 
 export default function CTASection() {
-  const { openModal } = useContactModal();
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
@@ -50,16 +48,15 @@ export default function CTASection() {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-            <button
-              type="button"
-              onClick={() => openModal("Free Consultation Request")}
+            <a
+              href="#contact"
               className="group px-10 py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-bold rounded-full hover:shadow-2xl hover:shadow-primary/30 hover:scale-105 transition-all duration-300 text-lg pulse-red"
             >
               Book My Free Consultation
               <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">
                 →
               </span>
-            </button>
+            </a>
             <a
               href="#pricing"
               className="px-10 py-4 glass border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-300"
