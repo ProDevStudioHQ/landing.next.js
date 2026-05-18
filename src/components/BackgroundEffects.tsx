@@ -10,8 +10,8 @@ export default function BackgroundEffects() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_80%_50%,rgba(239,68,68,0.06),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_80%,rgba(59,130,246,0.05),transparent_50%)]" />
 
-      {/* ── Aurora ribbons ── */}
-      <div className="aurora-container absolute inset-0">
+      {/* ── Aurora ribbons (desktop only — heavy blur breaks mobile GPUs) ── */}
+      <div className="aurora-container absolute inset-0 hidden md:block">
         <motion.div
           className="absolute w-[150vw] h-[60vh] -left-[25vw] top-[-10%] rounded-[50%] opacity-[0.07]"
           style={{
@@ -70,9 +70,9 @@ export default function BackgroundEffects() {
         />
       </div>
 
-      {/* ── Floating orbs ── */}
+      {/* ── Floating orbs (desktop only) ── */}
       <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full"
+        className="absolute w-[500px] h-[500px] rounded-full hidden md:block"
         style={{
           background:
             "radial-gradient(circle, rgba(239,68,68,0.12) 0%, transparent 70%)",
@@ -91,7 +91,7 @@ export default function BackgroundEffects() {
         }}
       />
       <motion.div
-        className="absolute w-[400px] h-[400px] rounded-full"
+        className="absolute w-[400px] h-[400px] rounded-full hidden md:block"
         style={{
           background:
             "radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)",
@@ -111,7 +111,7 @@ export default function BackgroundEffects() {
         }}
       />
       <motion.div
-        className="absolute w-[350px] h-[350px] rounded-full"
+        className="absolute w-[350px] h-[350px] rounded-full hidden md:block"
         style={{
           background:
             "radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%)",
@@ -131,7 +131,7 @@ export default function BackgroundEffects() {
         }}
       />
       <motion.div
-        className="absolute w-[250px] h-[250px] rounded-full"
+        className="absolute w-[250px] h-[250px] rounded-full hidden md:block"
         style={{
           background:
             "radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 70%)",
