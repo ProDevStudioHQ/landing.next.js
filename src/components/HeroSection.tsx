@@ -35,6 +35,25 @@ const item = {
   },
 };
 
+// Headline word-by-word reveal
+const headline = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
+};
+
+const word = {
+  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const line1 = "Landing pages, dashboards, and CRMs".split(" ");
+const line2 = "delivered in 7–21 days.".split(" ");
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -78,13 +97,29 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline — word-by-word reveal */}
         <motion.h1
-          variants={item}
+          variants={headline}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-6"
         >
-          Landing pages, dashboards, and CRMs{" "}
-          <span className="gradient-text">delivered in 7–21 days.</span>
+          {line1.map((w, i) => (
+            <motion.span
+              key={`a-${i}`}
+              variants={word}
+              className="inline-block mr-[0.25em]"
+            >
+              {w}
+            </motion.span>
+          ))}
+          {line2.map((w, i) => (
+            <motion.span
+              key={`b-${i}`}
+              variants={word}
+              className="gradient-text-shimmer inline-block mr-[0.25em]"
+            >
+              {w}
+            </motion.span>
+          ))}
         </motion.h1>
 
         {/* Subtitle */}
