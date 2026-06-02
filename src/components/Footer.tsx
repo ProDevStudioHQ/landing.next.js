@@ -12,7 +12,7 @@ const footerLinks = {
     { label: "Login Pages", href: "https://www.etsy.com/shop/DigitalStudioLF", external: true },
   ],
   Resources: [
-    { label: "Portfolio", href: "#portfolio", external: false },
+    { label: "Portfolio", href: "https://crm.digitalstudiolf.online/portfolio", external: true },
     { label: "Pricing", href: "#pricing", external: false },
     { label: "FAQ", href: "#faq", external: false },
     { label: "Contact Us", href: "#contact", external: false },
@@ -80,7 +80,9 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end">
             <a
-              href="#portfolio"
+              href="https://crm.digitalstudiolf.online/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-white/[0.05] to-white/[0.02] border border-white/10 hover:border-primary/50 hover:from-primary/10 hover:to-primary/5 transition-all duration-300 shadow-lg hover:shadow-primary/20"
             >
               <span className="text-white/60 text-sm group-hover:text-white transition-colors font-semibold">

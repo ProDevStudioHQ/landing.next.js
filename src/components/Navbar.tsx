@@ -8,7 +8,7 @@ import { SiFiverr } from "react-icons/si";
 
 const navLinks = [
   { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Portfolio", href: "https://crm.digitalstudiolf.online/portfolio", external: true },
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
@@ -63,6 +63,8 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 className="px-4 py-2 text-sm text-white/70 hover:text-white rounded-full hover:bg-white/5 transition-all duration-300"
               >
                 {link.label}
@@ -151,6 +153,8 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 onClick={() => setMobileOpen(false)}
                 className="block px-4 py-3 text-white hover:text-primary hover:bg-white/5 rounded-xl transition-colors text-base font-medium"
               >

@@ -11,7 +11,6 @@ const TargetAudienceSection = dynamic(() => import("@/components/TargetAudienceS
 const FeaturesSection = dynamic(() => import("@/components/FeaturesSection"));
 const IntegrationsSection = dynamic(() => import("@/components/IntegrationsSection"));
 const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
-const PortfolioSection = dynamic(() => import("@/components/PortfolioSection"));
 const PricingSection = dynamic(() => import("@/components/PricingSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
 const EmailCaptureSection = dynamic(() => import("@/components/EmailCaptureSection"));
@@ -33,7 +32,6 @@ export default function Home() {
         <FeaturesSection />
         <IntegrationsSection />
         <HowItWorks />
-        <PortfolioSection />
         <PricingSection />
         <FAQSection />
         <EmailCaptureSection />

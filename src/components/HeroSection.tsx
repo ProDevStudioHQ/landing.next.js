@@ -144,7 +144,9 @@ export default function HeroSection() {
             <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="#portfolio"
+            href="https://crm.digitalstudiolf.online/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/15 bg-white/[0.03] text-white/80 font-semibold hover:bg-white/[0.07] hover:border-white/30 hover:text-white transition-all duration-300 text-base backdrop-blur-sm"
           >
             View our work
