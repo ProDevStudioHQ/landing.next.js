@@ -27,7 +27,12 @@ const CRM_LEADS_URL =
 // Server-to-server (no CORS). Non-fatal: a CRM hiccup must not break the form.
 async function forwardToCrm(p: Payload): Promise<void> {
   const headers: Record<string, string> = { "Content-Type": "application/json" };
-  if (process.env.CRM_PUBLIC_API_KEY) headers["x-api-key"] = process.env.CRM_PUBLIC_API_KEY;
+  const apiKey = process.env.CRM_PUBLIC_API_KEY;
+  if (apiKey) {
+    headers["x-api-key"] = apiKey;
+  } else {
+    console.warn("[contact] CRM_PUBLIC_API_KEY is NOT set on the landing app — the CRM will reject the lead with 401. Add it in Dokploy env.");
+  }
   try {
     const res = await fetch(CRM_LEADS_URL, {
       method: "POST",
