@@ -20,6 +20,37 @@ function escape(s: string): string {
     .replace(/"/g, "&quot;");
 }
 
+const CRM_LEADS_URL =
+  process.env.CRM_LEADS_URL || "https://crm.digitalstudiolf.online/api/public/leads";
+
+// Forward the inquiry to the CRM so it appears under "Landing Page Leads".
+// Server-to-server (no CORS). Non-fatal: a CRM hiccup must not break the form.
+async function forwardToCrm(p: Payload): Promise<void> {
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (process.env.CRM_PUBLIC_API_KEY) headers["x-api-key"] = process.env.CRM_PUBLIC_API_KEY;
+  try {
+    const res = await fetch(CRM_LEADS_URL, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        name: p.name,
+        email: p.email,
+        source: "contact_form",
+        projectType: p.projectType || "",
+        planInterest: p.budget || "", // shows as "Plan Interest" in the CRM
+        message: p.message || "",
+        pageUrl: "https://digitalstudiolf.online/#contact",
+        referrer: "https://digitalstudiolf.online/",
+      }),
+    });
+    if (!res.ok) {
+      console.error("[contact] CRM forward failed", res.status, await res.text().catch(() => ""));
+    }
+  } catch (e) {
+    console.error("[contact] CRM forward error", e);
+  }
+}
+
 export async function POST(req: Request) {
   let body: Partial<Payload>;
   try {
@@ -36,8 +67,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
+  // Always push the lead into the CRM (independent of email delivery).
+  await forwardToCrm({ name, email, projectType: projectType || "", budget: budget || "", message });
+
   if (!RESEND_API_KEY) {
-    console.warn("[contact] RESEND_API_KEY not set — logging only", body);
+    console.warn("[contact] RESEND_API_KEY not set — CRM forwarded, email skipped", body);
     return NextResponse.json({ ok: true, dev: true });
   }
 
