@@ -8,8 +8,8 @@ import { SiFiverr } from "react-icons/si";
 
 const navLinks = [
   { label: "Services", href: "#services" },
-  { label: "Shop", href: "https://crm.digitalstudiolf.online/shop", external: true },
-  { label: "Portfolio", href: "https://crm.digitalstudiolf.online/portfolio", external: true },
+  { label: "Shop", href: "https://crm.digitalstudiolf.online/shop" },
+  { label: "Portfolio", href: "https://crm.digitalstudiolf.online/portfolio" },
   { label: "Features", href: "#features" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
