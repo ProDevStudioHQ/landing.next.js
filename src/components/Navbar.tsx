@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FaEtsy } from "react-icons/fa6";
 import { SiFiverr } from "react-icons/si";
 
-const navLinks = [
+const navLinks: { label: string; href: string; external?: boolean }[] = [
   { label: "Services", href: "#services" },
   { label: "Shop", href: "https://crm.digitalstudiolf.online/shop" },
   { label: "Portfolio", href: "https://crm.digitalstudiolf.online/portfolio" },
